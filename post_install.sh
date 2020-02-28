@@ -27,5 +27,6 @@ EOF
 chmod +x ./bin/start-node.sh
 chmod +x ./bin/stop-node.sh
 
-cp usr/local/etc/rc.d/flink /usr/local/etc/rc.d/flink
+# Setup flink rc.d script
+fetch -o /usr/local/etc/rc.d/flink https://raw.githubusercontent.com/martenlindblad/iocage-plugin-apache-flink/master/usr/local/etc/rc.d/flink
 sysrc flink_enable=YES 
