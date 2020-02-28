@@ -10,6 +10,8 @@ stop_cmd="${name}_start"
 
 load_rc_config $name
 
+PATH=$PATH:/usr/local/bin
+
 flink_start()
 {
 		/usr/local/flink/bin/start-node.sh
