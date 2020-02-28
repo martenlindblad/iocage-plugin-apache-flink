@@ -32,3 +32,4 @@ mkdir -p /usr/local/etc/rc.d/
 fetch -o /usr/local/etc/rc.d/flink https://raw.githubusercontent.com/martenlindblad/iocage-plugin-apache-flink/master/usr/local/etc/rc.d/flink
 chmod 555 /usr/local/etc/rc.d/flink
 sysrc flink_enable=YES 
+service flink start
