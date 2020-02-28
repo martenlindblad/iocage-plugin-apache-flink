@@ -1,7 +1,4 @@
-#!/usr/bin/env bash
-
-# Create user 'flink'
-pw add user -n flink -c Flink -s /usr/local/bin/bash -m
+#!/bin/sh
 
 # Download flink
 fetch http://apache.mirrors.spacedump.net/flink/flink-1.10.0/flink-1.10.0-bin-scala_2.11.tgz
@@ -11,7 +8,7 @@ cd /usr/local/flink
 mkdir -p ./plugins/s3-fs-presto
 cp ./opt/flink-s3-fs-presto-1.10.0.jar ./plugins/s3-fs-presto/
 
-
+# Configure to use external IP for flink
 ip_addr=$(ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2)
 sed -i -e 's/jobmanager.rpc.address: localhost/jobmanager.rpc.address: '$ip_addr'/g' conf/flink-conf.yaml
 
@@ -29,3 +26,6 @@ EOF
 
 chmod +x ./bin/start-node.sh
 chmod +x ./bin/stop-node.sh
+
+cp usr/local/etc/rc.d/flink /usr/local/etc/rc.d/flink
+sysrc flink_enable=YES 

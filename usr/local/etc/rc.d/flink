@@ -1,0 +1,23 @@
+#!/bin/sh
+
+. /etc/rc.subr
+
+name=flink
+rcvar=flink_enable
+
+start_cmd="${name}_start"
+stop_cmd="${name}_start"
+
+load_rc_config $name
+
+flink_start()
+{
+		/usr/local/flink/bin/start-node.sh
+}
+
+flink_stop()
+{
+		/usr/local/flink/bin/stop-node.sh
+}
+
+run_rc_command "$1"
