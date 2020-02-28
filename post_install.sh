@@ -4,7 +4,7 @@
 pw add user -n flink -c Flink -s /usr/local/bin/bash -m
 
 # Download flink
-fetch -o http://apache.mirrors.spacedump.net/flink/flink-1.10.0/flink-1.10.0-bin-scala_2.11.tgz
+fetch http://apache.mirrors.spacedump.net/flink/flink-1.10.0/flink-1.10.0-bin-scala_2.11.tgz
 tar -xf flink-1.10.0-bin-scala_2.11.tgz
 mv flink-1.10.0 /usr/local/flink
 cd /usr/local/flink
